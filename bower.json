@@ -1,0 +1,27 @@
+{
+  "name": "AdminPro",
+  "version": "1.0.0",
+  "description": "Gestión de Consorcios",
+  "main": "index.html",
+  "moduleType": [],
+  "keywords": [
+    "consorcios",
+    "gestión"
+  ],
+  "authors": [
+    "Ricardo Fazzi",
+    "Leonel Radaelli"
+  ],
+  "license": "GNU",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.5.0"
+  }
+}
