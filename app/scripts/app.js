@@ -28,7 +28,7 @@ angular.module('AdminPro', [])
         var dishes = [
             {
                 name:'Uthapizza',
-                image: 'images/uthapizza.png',
+                image: '../images/uthapizza.png',
                 category: 'mains',
                 label:'Hot',
                 price:'4.99',
@@ -37,7 +37,7 @@ angular.module('AdminPro', [])
             },
             {
                 name:'Zucchipakoda',
-                image: 'images/zucchipakoda.png',
+                image: '../images/zucchipakoda.png',
                 category: 'appetizer',
                 label:'',
                 price:'1.99',
@@ -46,7 +46,7 @@ angular.module('AdminPro', [])
             },
             {
                 name:'Vadonut',
-                image: 'images/vadonut.png',
+                image: '../images/vadonut.png',
                 category: 'appetizer',
                 label:'New',
                 price:'1.99',
@@ -55,7 +55,7 @@ angular.module('AdminPro', [])
             },
             {
                 name:'ElaiCheese Cake',
-                image: 'images/elaicheesecake.png',
+                image: '../images/elaicheesecake.png',
                 category: 'dessert',
                 label:'',
                 price:'2.99',
