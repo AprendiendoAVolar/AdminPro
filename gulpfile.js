@@ -12,6 +12,7 @@ var gulp = require('gulp'),
     changed = require('gulp-changed'),
     rev = require('gulp-rev'),
     browserSync = require('browser-sync'),
+    ngannotate = require('gulp-ng-annotate'),
     del = require('del');
 
 gulp.task('jshint', function() {
@@ -34,7 +35,7 @@ gulp.task('usemin',['jshint'], function () {
     return gulp.src('app/views/index.html')
         .pipe(usemin({
             css:[minifycss(),rev()],
-            js: [uglify(),rev()]
+            js: [ngannotate(),uglify(),rev()]
         }))
         .pipe(gulp.dest('dist/'));
 });
@@ -42,9 +43,8 @@ gulp.task('usemin',['jshint'], function () {
 // Images
 gulp.task('imagemin', function() {
     return del(['dist/images']), gulp.src('app/images/**/*')
-        .pipe(cache(imagemin({ optimizationLevel: 3, progressive: true, interlaced: true })))
-        .pipe(gulp.dest('dist/images'))
-        .pipe(notify({ message: 'Images task complete' }));
+        .pipe(imagemin({ optimizationLevel: 3, progressive: true, interlaced: true }))
+        .pipe(gulp.dest('dist/images'));
 });
 
 gulp.task('copyfonts', ['clean'], function() {
