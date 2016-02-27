@@ -1,31 +1,31 @@
 'use strict';
 angular.module('AdminPro', [])
-    .controller('mainCtrl', function(){
+    .controller('MainCtrl', ['$scope', function($scope){
 
-        this.tab = 1;
-        this.filtText = "";
+        $scope.tab = 1;
+        $scope.filtText = "";
 
-        this.select = function(index){
-            this.tab = index;
+        $scope.select = function(index){
+            $scope.tab = index;
             if(index === 2){
-                this.filtText = "appetizer";
+                $scope.filtText = "appetizer";
             }
             else if (index === 3){
-                this.filtText = "mains";
+                $scope.filtText = "mains";
             }
             else if (index === 4){
-                this.filtText = "dessert";
+                $scope.filtText = "dessert";
             }
             else{
-                this.filtText = "";
+                $scope.filtText = "";
             }
         };
 
-        this.isSelected = function(value){
-            return this.tab === value;
+        $scope.isSelected = function(value){
+            return $scope.tab === value;
         };
 
-        var dishes = [
+        $scope.dishes = [
             {
                 name:'Uthapizza',
                 image: '../images/uthapizza.png',
@@ -63,6 +63,5 @@ angular.module('AdminPro', [])
                 comment: ''
             }
         ];
-        this.dishes = dishes;
 
-    });
+    }]);
