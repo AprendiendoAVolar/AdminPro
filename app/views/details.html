@@ -21,11 +21,41 @@
     <![endif]-->
 <style type="text/css"></style></head>
 <body>
-    <div class="row row-content">
+    <div class="row row-content" ng-controller="DetailsCtrl">
+
+        <div clasS="tab-content">
+            <div class="media-left media-middle">
+                <a href="#">
+                    <img class="media-object img-thumbnail"
+                         ng-src={{dish.image}} alt="Uthappizza">
+                </a>
+            </div>
+            <div class="media-body">
+                <h2 class="media-heading">{{dish.name}}
+                    <span class="label label-danger">{{dish.label}}</span>
+                    <span class="badge">{{dish.price | currency}}</span></h2>
+                <p>{{dish.description}}</p>
+            </div>
+        </div>
+
+        <div clasS="tab-content">
+            <ul class="media-list tab-panel">
+                <li class="media" ng-repeat="comment in dish.comments">
+                    <div class="media-body">
+                        <blockquote>
+                            <p>{{comment.rating}} Stars</p>
+                            <p>{{comment.comment}}</p>
+                            <footer>{{comment.author}} - {{comment.date | date : "dd/MM/yyyy"}}</footer>
+                        </blockquote>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
         <div class="col-xs-12">
             <h3>Send us your Comment</h3>
         </div>
-        <div class="col-xs-12 col-sm-9" ng-controller="DetailsCtrl">
+        <div class="col-xs-12 col-sm-9" >
             <form name="detailsForm" novalidate ng-submit="sendComment()" role="form" class="form-horizontal">
                 <div class="form-group"
                      ng-class="{ 'has-error' : detailsForm.author.$error.required && !detailsForm.author.$pristine}">
@@ -69,19 +99,7 @@
                 </div>
             </form>
 
-            <div clasS="tab-content">
-                <ul class="media-list tab-panel">
-                    <li class="media" ng-repeat="comment in dish.comments">
-                        <div class="media-body">
-                            <blockquote>
-                                <p>{{comment.rating}} Stars</p>
-                                <p>{{comment.comment}}</p>
-                                <footer>{{comment.author}} - {{comment.date | date : "dd/MM/yyyy"}}</footer>
-                            </blockquote>
-                        </div>
-                    </li>
-                </ul>
-            </div>
+
 
         </div>
     </div>
@@ -89,6 +107,8 @@
     <script src="bower_components/angular/angular.min.js"></script>
 
     <script src="app/scripts/details.js"></script>
+    <script src="app/scripts/controllers.js"></script>
+    <script src="app/scripts/services.js"></script>
     <!-- endBuild -->
 
 </body></html>
