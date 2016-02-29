@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('AdminPro')
-    .controller('DetailsCtrl', ['$scope', '$routeParams' ,'mainService',
-        function($scope, $routeParams, mainService){
+    .controller('DetailsCtrl', ['$scope', '$stateParams' ,'mainService',
+        function($scope, $stateParams, mainService){
 
         $scope.cleanComment = function(){
             $scope.comment = {
@@ -16,7 +16,7 @@ angular.module('AdminPro')
         $scope.cleanComment();
 
         //$routeParams.id viene como String, y tengo que mandar un int, por eso la conversion.
-        $scope.dish = mainService.getDish(parseInt($routeParams.id, 10));
+        $scope.dish = mainService.getDish(parseInt($stateParams.id, 10));
 
         $scope.sendComment = function(){
 
