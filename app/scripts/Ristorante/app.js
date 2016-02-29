@@ -10,8 +10,8 @@ angular.module('AdminPro', ['ui.router'])
                         templateUrl : 'views/header.html'
                     },
                     'content': {
-                        template : '<h1>To be Completed</h1>',
-                        controller  : 'IndexController'
+                        templateUrl : 'views/ristorante/home.html',
+                        controller  : 'IndexCtrl'
                     },
                     'footer': {
                         templateUrl : 'views/footer.html'
@@ -23,8 +23,8 @@ angular.module('AdminPro', ['ui.router'])
                 url:'aboutus',
                 views: {
                     'content@': { //esto hace que solo cambie el contenido, el header y el footer se queda!
-                        template: '<h1>To be Completed</h1>',
-                        controller  : 'AboutController'
+                        templateUrl : 'views/ristorante/aboutus.html',
+                        controller  : 'AboutCtrl'
                     }
                 }
             })
@@ -33,7 +33,7 @@ angular.module('AdminPro', ['ui.router'])
                 url:'contactus',
                 views: {
                     'content@': {
-                        templateUrl : 'views/contactus.html',
+                        templateUrl : 'views/ristorante/contactus.html',
                         controller  : 'ContactCtrl'
                     }
                 }
@@ -44,7 +44,7 @@ angular.module('AdminPro', ['ui.router'])
                 url: 'menu',
                 views: {
                     'content@': {
-                        templateUrl : 'views/menu.html',
+                        templateUrl : 'views/ristorante/menu.html',
                         controller  : 'MainCtrl'
                     }
                 }
@@ -55,7 +55,7 @@ angular.module('AdminPro', ['ui.router'])
                 url: 'menu/:id',
                 views: {
                     'content@': {
-                        templateUrl : 'views/details.html',
+                        templateUrl : 'views/ristorante/details.html',
                         controller  : 'DetailsCtrl'
                     }
                 }
