@@ -1,13 +1,13 @@
 'use strict';
 angular.module('AdminPro')
-    .controller('MainCtrl', ['$scope', 'MainFactory',
-        function($scope, MainFactory){
+    .controller('MainCtrl', ['$scope', 'mainService',
+        function($scope, mainService){
 
         $scope.tab = 1;
         $scope.filtText = "";
         $scope.showDetails = false;
 
-        $scope.dishes = MainFactory.getDishes();
+        $scope.dishes = mainService.getDishes();
 
         $scope.toggleDetails = function(){
             $scope.showDetails = !$scope.showDetails;
