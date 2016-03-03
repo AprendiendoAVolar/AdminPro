@@ -1,4 +1,7 @@
-<div class="container">
+<div class="col-xs-12" ng-if="!showAboutus">
+    <h3>{{message}}</h3>
+</div>
+<div class="container" ng-if="showAboutus">
     <div class="row">
         <div class="col-xs-12">
            <ul class="breadcrumb">
