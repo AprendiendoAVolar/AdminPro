@@ -1,5 +1,6 @@
 'use strict';
-angular.module('AdminPro', ['ui.router'])
+//$resource(url, [paramDefaults], [actions], options);
+angular.module('AdminPro', ['ui.router', 'ngResource'])
     .constant("baseURL", "http://localhost:3000/")
     .config(function($stateProvider, $urlRouterProvider){
         $stateProvider

@@ -9,16 +9,17 @@ angular.module('AdminPro')
             $scope.showMenu = false;
             $scope.message = "Loading...";
 
-            mainService.getDishes().then(
+            //El metodo queri va a retornar el array entero de dishes
+            mainService.getDishes().query(
                 function(response){
-                    $scope.dishes = response.data;
+                    $scope.dishes = response;
                     $scope.showMenu = true;
                 },
                 function(response){
-                    $scope.message = "Error: " + response.status + " " + response.statusText;
-                    $scope.showMenu = false;
+                    $scope.message = "Error: "+ response.status + " " + response.statusText;
                 }
             );
+
 
             $scope.toggleDetails = function(){
                 $scope.showDetails = !$scope.showDetails;

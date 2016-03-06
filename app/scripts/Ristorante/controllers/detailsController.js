@@ -18,22 +18,22 @@ angular.module('AdminPro')
 
             $scope.cleanComment();
 
-            //$routeParams.id viene como String, y tengo que mandar un int, por eso la conversion.
-            mainService.getDish(parseInt($stateParams.id, 10)).then(
-                function(response){
-                    $scope.dish = response.data;
-                    $scope.showDetails = true;
-                },
-                function(response){
-                    $scope.message = "Error: " + response.status + " " + response.statusText;
-                    $scope.showDetails = false;
-                }
-            );
+            mainService.getDishes().get({id:parseInt($stateParams.id,10)})
+                .$promise.then(
+                    function(response){
+                        $scope.dish = response;
+                        $scope.showDetails = true;
+                    },
+                    function(response){
+                        $scope.message = "Error: "+ response.status + " " + response.statusText;
+                    }
+                );
 
             $scope.sendComment = function(){
 
                 $scope.comment.date = new Date();
                 $scope.dish.comments.push($scope.comment);
+                mainService.getDishes().update({id:$scope.dish.id}, $scope.dish);
                 console.log($scope.comment);
                 $scope.cleanComment();
                 $scope.detailsForm.$setPristine();

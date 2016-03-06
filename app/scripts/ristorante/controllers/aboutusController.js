@@ -5,9 +5,9 @@ angular.module('AdminPro')
 
             $scope.message = "Loading...";
             $scope.showAboutus = false;
-            corporateService.getLeaders().then(
+            corporateService.getLeaders().query(
                 function(response){
-                    $scope.leaders = response.data;
+                    $scope.leaders = response;
                     $scope.showAboutus = true;
                 },
                 function(response){

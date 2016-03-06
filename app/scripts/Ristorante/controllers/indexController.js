@@ -4,35 +4,39 @@ angular.module('AdminPro')
         function ($scope, mainService, promotionService, corporateService){
 
             $scope.message = "Loading...";
-            $scope.showHome = false;
+            $scope.showHome = true;
 
-            mainService.getDish(0).then(
-                function(response){
-                    $scope.dish = response.data;
-                    $scope.showHome = true;
-                },
-                function(response){
-                    $scope.message = "Error: " + response.status + " " + response.statusText;
-                    $scope.showHome = false;
-                }
-            );
+            mainService.getDishes().get({id:0})
+                .$promise.then(
+                    function(response){
+                        $scope.dish = response;
+                        $scope.showHome = true;
+                    },
+                    function(response){
+                        $scope.message = "Error: "+ response.status + " " + response.statusText;
+                    }
+                );
 
-            promotionService.getPromotion(0).then(
-                function(response){
-                    $scope.promotion = response.data;
-                },
-                function(response){
-                    $scope.message = "Error: " + response.status + " " + response.statusText;
-                }
-            );
+            promotionService.getPromotion().get({id:0})
+                .$promise.then(
+                    function(response){
+                        $scope.promotion = response;
+                        $scope.showHome = true;
+                    },
+                    function(response){
+                        $scope.message = "Error: " + response.status + " " + response.statusText;
+                    }
+                );
 
-            corporateService.getLeader(2).then(
-                function(response){
-                    $scope.leader = response.data;
-                },
-                function(response){
-                    $scope.message = "Error: " + response.status + " " + response.statusText;
-                }
-            );
+            corporateService.getLeaders().get({id:2})
+                .$promise.then(
+                    function(response){
+                        $scope.leader = response;
+                        $scope.showHome = true;
+                    },
+                    function(response){
+                        $scope.message = "Error: " + response.status + " " + response.statusText;
+                    }
+                );
 
     }]);
